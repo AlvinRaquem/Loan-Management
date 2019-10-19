@@ -754,7 +754,7 @@
    </div>
 
        <div class="panel panel-default">
-        <div class="panel-heading">LOAN HISTORY<a href="applyloan?idno=<?= $_GET['refno'];?>" class="pull-right">Apply Loan</a>></div>
+        <div class="panel-heading">LOAN HISTORY<a href="applyloan?idno=<?= $_GET['refno'];?>" class="pull-right">Apply Loan</a></div>
    <div  class="panel-body">
                    <div class="table-responsive">
                       <table class="table table-bordered table-striped table-condensed">
