@@ -2,6 +2,10 @@
 A Simple Loan Management System build by PHP (OOP) AND MySQL
 
 
-## Create and Import database from database/loan_monitor.sql
+Create and Import database from database/loan_monitor.sql
 <br/>
-## Check config.php
+Check config.php
+<br/>
+Username: admin
+<br/>
+Password: admin
