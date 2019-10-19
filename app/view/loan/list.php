@@ -39,7 +39,7 @@ $loancontroller = new loancontroller;
                     <th>CI <i class="fa fa-sort"></i></th>
                     <th>Check Voucher <i class="fa fa-sort"></i></th>
                     <th>Rem Balance <i class="fa fa-sort"></i></th>
-                    <th></th>
+<!--                     <th></th> -->
                     <th>Status <i class="fa fa-sort"></th>
 
                 </tr>
@@ -87,8 +87,17 @@ $loancontroller = new loancontroller;
                     ?>
 
 
-                    <tr class="<?= $paymentDisplay[0];?>">
-                      <td><a href="loanDetails?loanID=<?=urlencode($loan['refno']);?>"><?= $loanprefix.$loan['refno'].$loansuffix;?></a></td>
+                      <tr class="<?= $paymentDisplay[0];?>">
+                      <td>
+                        <select class="form-control" onchange="getAction(this,<?=urlencode($loan['refno']);?>)">
+                            <option disabled selected><?= $loanprefix.$loan['refno'].$loansuffix;?></option>
+                            <option value="1">Details</option>
+                              <?php if($loan['status']==1):?>
+                            <option value="2">Payment</option>
+                          <?php endif?>
+                        </select>
+
+                       <!--  <a href="loanDetails?loanID=<?=urlencode($loan['refno']);?>"><?= $loanprefix.$loan['refno'].$loansuffix;?></a></td> -->
                       <td><?= $loan['dateloan'];?></td>
                       <td><?= $loan['idno'];?></td>
                       <td><?= $loan['surname'].", ".$loan['firstname']." ".$loan['middlename'];?></td>
@@ -104,10 +113,10 @@ $loancontroller = new loancontroller;
                       <td><p class="<?= $voucherStatusclass;?>"><?= $loan['voucherStatus'];?></p></td>
                       <?php if($loan['status']==1):?>
                        <td align="right"><?= number_format($loan['balance'], 2);?></td>
-                      <td><a href="payment?RefNo=<?= urlencode($loan['refno']);?>">payment</a></td>
+                     <!--  <td><a href="payment?RefNo=<?= urlencode($loan['refno']);?>">payment</a></td> -->
                       <?php else:?>
                       <td></td>
-                      <td></td>
+                     <!--  <td></td> -->
                       <?php endif?>
                       <td><?= $paymentDisplay[1];?></td>
 
@@ -138,6 +147,18 @@ $loancontroller = new loancontroller;
   $("#loanList").dataTable({
     lengthMenu: [[100,200,500,-1],['100','200','500','All']],
   });
+	
+	
+  function getAction(e,refno){
+    let action = e.value;
+
+    if(e.value == 1){
+      window.location.href = "loanDetails?loanID="+refno;
+    }else{
+      window.location.href = "payment?RefNo="+refno;
+    }
+  }
+
 
 </script>
 
