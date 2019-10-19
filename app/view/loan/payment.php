@@ -183,7 +183,7 @@ if($loan['type']=='Personal'){
                                     <input type="hidden" name="interest" value="<?php echo $loan['interest']; ?>" /> -->
 
                 <button style="margin: 15pt 10pt 0pt 10pt" class="btn btn-primary pull-right" type="submit" name="submit"><span class="fa fa-check"></span> SAVE</button>
-              
+               <a href="loan_list" style="margin: 15pt 10pt 0pt 10pt" class="btn btn-default pull-left"><span class="fa fa-close"></span> Close</a>
 
 
                       </div>
