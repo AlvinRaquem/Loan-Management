@@ -1,7 +1,7 @@
 <?php 
 
 include __DIR__.'../../includes/header.php';
-use model/loan;
+use model\loan;
 $loan = new loan;
 $search = "ALL";
 if (isset($_POST['btnSearch'])){
